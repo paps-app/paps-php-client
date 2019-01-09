@@ -1,0 +1,29 @@
+{
+  "name": "paps-app/paps-php-client",
+  "description": "Paps API Client for PHP",
+  "license": "MIT",
+  "keywords": [
+    "paps",
+    "api-client"
+  ],
+  "type": "library",
+  "homepage": "https://github.com/paps-app/paps-php-client",
+  "authors": [
+    {
+      "name": "Madiodio Gaye",
+      "homepage": "https://github.com/madiodio"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "~4.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "Paps\\": "src/Paps/"
+    }
+  },
+  "require": {
+    "php": "^5.6 || ~7.0",
+    "guzzlehttp/guzzle": "~6.0"
+  }
+}
