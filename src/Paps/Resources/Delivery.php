@@ -39,7 +39,7 @@ class Delivery extends AbstractResource
      *
      * @var string
      */
-    protected $endpoint = 'createMultipleTasks';
+    protected $endpoint = 'createPickupAndDelivery';
     // protected $endpoint = 'customers/[customer_id]/deliveries';
 
     /**
