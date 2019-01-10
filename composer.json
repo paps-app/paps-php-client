@@ -6,7 +6,6 @@
     "paps",
     "api-client"
   ],
-  "version": "0.0.3",
   "type": "library",
   "homepage": "https://github.com/paps-app/paps-php-client",
   "authors": [
