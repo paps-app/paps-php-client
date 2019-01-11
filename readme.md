@@ -29,7 +29,7 @@ _To retrieve an API Key, visit [here](https://developers.paps.sn) and hit the "g
 ### Create a Delivery
 
 ```php
-$delivery = new Postmates\Resources\Delivery($client);
+$delivery = new Paps\Resources\Delivery($client);
 
 $params = [
     'jobDescription'   => 'Commande venant du site de Test',
