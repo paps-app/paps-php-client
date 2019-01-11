@@ -38,7 +38,7 @@ $params = [
     'jobPickupAddress' => 'Medina, Dakar, Sénégal',
     'jobPickupDatetime' => '2019-01-12 12:00:00',
     'jobDeliveryDatetime' => '2019-01-14 12:00:00',
-    'customerName' => 'Test Delivery Name',
+    'customerUsername' => 'Test Delivery Name',
     'customerAddress' => 'Urbam, Dakar, Sénégal',
     'customerPhone' => '779999999'
 ];
