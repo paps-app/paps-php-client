@@ -1,6 +1,6 @@
 <?php
 
-namespace Postmates\Resources;
+namespace Paps\Resources;
 
 class Delivery extends AbstractResource
 {

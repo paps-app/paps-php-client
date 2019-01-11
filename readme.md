@@ -26,6 +26,26 @@ $client = new Paps\PapsClient([
 
 _To retrieve an API Key, visit [here](https://developers.paps.sn) and hit the "get a key" button._
 
+### Create a Delivery
+
+```php
+$delivery = new Postmates\Resources\Delivery($client);
+
+$params = [
+    'jobDescription'   => 'Commande venant du site de Test',
+    'jobPickupPhone' => '778888888',
+    'jobPickupName' => 'Test Pickup Name',
+    'jobPickupAddress' => 'Medina, Dakar, Sénégal',
+    'jobPickupDatetime' => '2019-01-12 12:00:00',
+    'jobDeliveryDatetime' => '2019-01-14 12:00:00',
+    'customerName' => 'Test Delivery Name',
+    'customerAddress' => 'Urbam, Dakar, Sénégal',
+    'customerPhone' => '779999999'
+];
+
+$delivery->create($params);
+```
+
 ## WooCommerce Integration
 
 [WooCommerce Paps Integration Plugin](https://wordpress.org/plugins/woocommerce-paps/)
