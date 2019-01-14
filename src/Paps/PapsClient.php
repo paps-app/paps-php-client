@@ -9,8 +9,7 @@ class PapsClient
   /**
    * API Base URL
    */
-  //   const API_BASE_PATH = 'https://api.paps.sn/api/';
-  const API_BASE_PATH = 'http://localhost:8000/';
+  const API_BASE_PATH = 'https://api.paps.sn/api/';
 
   /**
    * API Version
