@@ -10,28 +10,25 @@ class DeliveryQuote extends AbstractResource
      *
      * @var string
      */
-    protected $endpoint = 'customers/[customer_id]/delivery_quotes';
+    protected $endpoint = '/getQuotes/[customer_id]/';
 
     /**
      * Get quote for the given pickup and dropoff addresses
      *
-     * https://postmates.com/developer/docs/endpoints#get_quote
+     * https://developers.paps.sn/quotes#get-a-quote
      *
-     * @param $pickup_address
-     * @param $dropoff_address
+     * @param $origin
+     * @param $destination
+     * @param $packageSize
      * @return mixed
      */
     public function getQuote($pickup_address, $dropoff_address)
     {
 
-        return $this
-            ->setMethod('POST')
-            ->setParams([
-                'pickup_address' => $pickup_address,
-                'dropoff_address' => $dropoff_address
-            ])
-            ->send();
-
+    return $this->setEndpoint($this->getEndpoint() . 'getQuotes')
+      ->setParams($quotes_params)
+      ->setMethod('GET')
+      ->send();
     }
 
 }
