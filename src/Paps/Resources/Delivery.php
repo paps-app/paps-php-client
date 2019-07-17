@@ -45,7 +45,7 @@ class Delivery extends AbstractResource
   /**
    * Create a new delivery
    *
-   * https://postmates.com/developer/docs/endpoints#create_delivery
+   * https://developers.paps.sn/create#créer-une-tâche-de-pickup-et-delivery-liés
    *
    * @param array $delivery_params
    * @return mixed
@@ -61,7 +61,6 @@ class Delivery extends AbstractResource
   /**
    * Get all deliveries
    *
-   * https://postmates.com/developer/docs/endpoints#list_deliveries
    *
    * @param string $filter
    * @return mixed
@@ -77,11 +76,28 @@ class Delivery extends AbstractResource
       ->setMethod('POST')
       ->send();
   }
+  
+    /**
+   *
+   * Get a quote
+   *
+   * https://developers.paps.sn/quotes#get-quote
+   *
+   * @param array $quotes_params
+   * @return mixed
+   */
+  public function submitQuotesRequest(array $quotes_params = [])
+  {
+    return $this->setEndpoint($this->getEndpoint() . 'getQuotes')
+      ->setParams($quotes_params)
+      ->setMethod('GET')
+      ->send();
+  }
 
   /**
    * Get a delivery by id
    *
-   * https://postmates.com/developer/docs/endpoints#get_delivery
+   * https://developers.paps.sn/handle#visualiser-les-infos-sur-une-tâche
    *
    * @param string $task_id
    * @return mixed
@@ -99,7 +115,7 @@ class Delivery extends AbstractResource
   /**
    * Cancel a delivery
    *
-   * https://postmates.com/developer/docs/endpoints#cancel_delivery
+   * https://developers.paps.sn/handle#annuler-une-tâche
    *
    * @param string $delivery_id
    * @return mixed
