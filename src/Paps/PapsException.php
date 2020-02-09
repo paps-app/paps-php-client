@@ -5,8 +5,8 @@ namespace Paps;
 use Exception;
 
 /**
- * Handles Postmates Errors
- * @package Postmates
+ * Handles Paps Errors
+ * @package Paps
  */
 class PapsException extends \Exception
 {
@@ -18,22 +18,23 @@ class PapsException extends \Exception
     protected $invalid_params;
 
     /**
-     * Postmates_Exception constructor.
+     * Paps_Exception constructor.
      * @param string $message
      * @param int $code
      * @param Exception|null $previous
      * @param array $invalid_params
      */
-    public function __construct($message = "", $code = 0, Exception $previous = null, array $invalid_params = [])
-    {
+    public function __construct(
+        $message = "",
+        $code = 0,
+        Exception $previous = null,
+        array $invalid_params = []
+    ) {
         parent::__construct($message, $code, $previous);
 
         if (!empty($invalid_params)) {
-
             $this->invalid_params = $invalid_params;
-
         }
-
     }
 
     /**
@@ -41,9 +42,6 @@ class PapsException extends \Exception
      */
     public function getInvalidParams()
     {
-
         return $this->invalid_params;
-
     }
-
 }

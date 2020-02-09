@@ -2,7 +2,6 @@
 
 namespace Paps\Resources;
 
-
 class DeliveryZones extends AbstractResource
 {
     /**
@@ -21,9 +20,6 @@ class DeliveryZones extends AbstractResource
      */
     public function listZones()
     {
-        return $this
-            ->setMethod('GET')
-            ->send();
-
+        return $this->setMethod('GET')->send();
     }
 }

@@ -2,7 +2,6 @@
 
 namespace Paps\Resources;
 
-
 class DeliveryQuote extends AbstractResource
 {
     /**
@@ -24,11 +23,9 @@ class DeliveryQuote extends AbstractResource
      */
     public function getQuote($pickup_address, $dropoff_address)
     {
-
-    return $this->setEndpoint($this->getEndpoint() . 'getQuotes')
-      ->setParams($quotes_params)
-      ->setMethod('GET')
-      ->send();
+        return $this->setEndpoint($this->getEndpoint() . 'getQuotes')
+            ->setParams($quotes_params)
+            ->setMethod('GET')
+            ->send();
     }
-
 }

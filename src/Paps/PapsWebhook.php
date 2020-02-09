@@ -13,7 +13,7 @@ class PapsWebhook
      * PapsWebhook constructor.
      * @param string $signature_secret
      */
-    public function __construct( $signature_secret = '' )
+    public function __construct($signature_secret = '')
     {
         $this->signature_secret = $signature_secret;
     }
@@ -25,7 +25,6 @@ class PapsWebhook
      */
     public function parseRequest()
     {
-
         $raw_request = file_get_contents('php://input');
         $paps_signature = $_SERVER['HTTP_X_PAPS_SIGNATURE'];
 
@@ -34,7 +33,6 @@ class PapsWebhook
         }
 
         return null;
-
     }
 
     /**
@@ -46,9 +44,6 @@ class PapsWebhook
      */
     public function validateRequest($payload, $key)
     {
-
         return hash_hmac('sha256', $payload, $this->signature_secret) == $key;
-
     }
-
 }
