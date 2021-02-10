@@ -10,12 +10,12 @@
   "homepage": "https://github.com/paps-app/paps-php-client",
   "authors": [
     {
-      "name": "Madiodio Gaye",
-      "homepage": "https://github.com/madiodio"
+      "name": "Kiamet MAVOUNGOU",
+      "homepage": "https://github.com/Kiamet"
     }
   ],
   "require-dev": {
-    "phpunit/phpunit": "~4.6"
+    "phpunit/phpunit": "^ 8.5.5 || ^ 9.3.5"
   },
   "autoload": {
     "psr-4": {
@@ -23,7 +23,7 @@
     }
   },
   "require": {
-    "php": "^5.6 || ~7.0",
-    "guzzlehttp/guzzle": "^6.3 || ~6.5"
+    "php": "^7.3|^8.0",
+    "guzzlehttp/guzzle": "^7.1.0 || ~7.2.0"
   }
 }
