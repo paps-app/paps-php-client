@@ -90,9 +90,8 @@ abstract class AbstractResource
                 }
             }
 
-            $response = $this->client
-                ->getHttpClient()
-                ->request($this->getMethod(), $this->getEndpoint(), $params);
+            $http_client = $this->client->getHttpClient();
+            $response = $http_client->send($http_client->createRequest($this->getMethod(), $this->getEndpoint(), $params));
         } catch (\Exception $e) {
             throw new PapsException($e->getMessage(), $e->getCode());
         }
