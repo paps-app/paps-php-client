@@ -57,7 +57,7 @@ class PapsClient
     {
         if (is_null($this->http)) {
             $options = ['exceptions' => false];
-            $options['base_uri'] =
+            $options['base_url'] =
                 $this->config['base_path'] . $this->config['api_version'] . '/';
 
             if (!empty($this->config['paps_version'])) {

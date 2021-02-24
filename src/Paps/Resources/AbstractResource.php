@@ -58,6 +58,8 @@ abstract class AbstractResource
      */
     protected function send()
     {
+        $content = null;
+
         try {
             // in case of customer_id being in the URL replace it here with the customer_id from config
             $this->setEndpoint($this->getEndpoint());
@@ -86,17 +88,19 @@ abstract class AbstractResource
                 if ($this->getMethod() == 'GET') {
                     $params = [
                         'query' => array_merge($this->getParams(), $defaultQueryParams)
-                    ];
-                }
+                    ]; 
+                } 
             }
 
-            $http_client = $this->client->getHttpClient();
-            $response = $http_client->send($http_client->createRequest($this->getMethod(), $this->getEndpoint(), $params));
+            $httpClient = $this->client->getHttpClient();
+            $response = $httpClient->send($httpClient->createRequest($this->getMethod(), $this->getEndpoint(), $params));
+            $content = $response->getBody();
         } catch (\Exception $e) {
+            return error_log(print_r($e->getMessage()));
             throw new PapsException($e->getMessage(), $e->getCode());
         }
 
-        $parsed_response = json_decode($response->getBody(), true);
+        $parsed_response = json_decode($content, true);
 
         if ($parsed_response === null) {
             throw new PapsException('Empty body response.');
