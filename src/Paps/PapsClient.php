@@ -76,7 +76,6 @@ class PapsClient
 
     /**
      * Get current config
-     *
      * @return array
      */
     public function getConfig()
