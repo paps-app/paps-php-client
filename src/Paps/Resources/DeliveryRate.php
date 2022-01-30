@@ -23,7 +23,7 @@ class DeliveryRate extends AbstractResource
      */
     public function getRate($pickup_address, $dropoff_address)
     {
-        return $this->setEndpoint($this->getEndpoint() . 'marketplace')
+        return $this->setEndpoint($this->getEndpoint() . 'marketplace/getRate')
             ->setParams($quotes_params)
             ->setMethod('POST')
             ->send();
