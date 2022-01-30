@@ -66,22 +66,18 @@ abstract class AbstractResource
 
             $clientConfig = $this->client->getConfig();
 
-            $defaultQueryParams = ['api_key' => $clientConfig['api_key']];
+            $defaultQueryParams = ['clientId' => $clientConfig["clientId, clientSecret"]];
             if ($clientConfig['mode'] == "test") {
                 $defaultQueryParams['test'] = true;
             }
 
             $params = [];
 
-            // include params if present
             if (!empty($this->getParams())) {
                 if ($this->getMethod() == 'POST') {
                     $params = [
                         'form_params' => $this->getParams(),
                         'query' => $defaultQueryParams
-                        // 'on_stats' => function (TransferStats $stats) use (&$url) {
-                        //   echo $stats->getEffectiveUri();
-                        // }
                     ];
                 }
 

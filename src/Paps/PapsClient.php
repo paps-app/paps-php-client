@@ -9,12 +9,12 @@ class PapsClient
     /**
      * API Base URL
      */
-    const API_BASE_PATH = 'https://api.paps.sn/api/';
+    const API_BASE_PATH = 'http://localhost:14300/';
 
     /**
      * API Version
      */
-    const API_VERSION = 'v1';
+    const API_VERSION = 'v2';
 
     /**
      * HTTP Client
@@ -38,7 +38,8 @@ class PapsClient
     {
         $this->config = array_merge(
             [
-                'api_key' => '',
+                'clientId' => '',
+                'clientSecret' => '',
                 'paps_version' => '',
                 'mode' => 'production',
                 'base_path' => self::API_BASE_PATH,
@@ -58,7 +59,8 @@ class PapsClient
         if (is_null($this->http)) {
             $options = ['exceptions' => false];
             $options['base_url'] =
-                $this->config['base_path'] . $this->config['api_version'] . '/';
+                $this->config['base_path'] . '/';
+                //. $this->config['api_version']
 
             if (!empty($this->config['paps_version'])) {
                 $options['headers'] = [
@@ -66,7 +68,7 @@ class PapsClient
                 ];
             }
 
-            $options['auth'] = [$this->config['api_key'], ''];
+            $options['auth'] = [$this->config["clientId ,clientSecret "], ''];
 
             $this->http = new Client($options);
         }
