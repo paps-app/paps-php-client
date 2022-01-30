@@ -131,7 +131,7 @@ class Delivery extends AbstractResource
      */
     public function submitQuotesRequest(array $quotes_params = [])
     {
-        return $this->setEndpoint($this->getEndpoint() . '/marketplace/getRate')
+        return $this->setEndpoint($this->getEndpoint() . 'marketplace')
             ->setParams($quotes_params)
             ->setMethod('GET')
             ->send();
