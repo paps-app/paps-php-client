@@ -9,7 +9,7 @@ class DeliveryQuote extends AbstractResource
      *
      * @var string
      */
-    protected $endpoint = '/getQuotes/[customer_id]/';
+    protected $endpoint = '/marketplace/[customer_id]/';
 
     /**
      * Get quote for the given pickup and dropoff addresses
@@ -23,7 +23,7 @@ class DeliveryQuote extends AbstractResource
      */
     public function getQuote($pickup_address, $dropoff_address)
     {
-        return $this->setEndpoint($this->getEndpoint() . 'getQuotes')
+        return $this->setEndpoint($this->getEndpoint() . 'marketplace')
             ->setParams($quotes_params)
             ->setMethod('GET')
             ->send();

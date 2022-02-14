@@ -4,7 +4,7 @@
 
 A PHP client for consuming the [Paps API](https://developers.paps.sn/).
 
-_This client is targeting the API version v1_.
+_This client is targeting the API version v2_.
 
 ## Install
 
@@ -53,7 +53,7 @@ You can use this method if you also want to track your orders on the Monespace w
 $delivery = new Paps\Resources\Delivery($client);
 
 // Email registered on your Monespace account
-$email = "saliou@example.com"
+$email = "kiamet@example.com"
 
 // Prepare your pickups params
 $pickups = [

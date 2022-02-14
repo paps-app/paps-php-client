@@ -52,7 +52,7 @@ class Delivery extends AbstractResource
      */
     public function create(array $delivery_params = [])
     {
-        return $this->setEndpoint($this->getEndpoint() . 'createPickupAndDelivery')
+        return $this->setEndpoint($this->getEndpoint() . 'tasks')
             ->setParams($delivery_params)
             ->setMethod('POST')
             ->send();
