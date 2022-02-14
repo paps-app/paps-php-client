@@ -2,9 +2,9 @@
 
 <!-- [![Build Status](https://travis-ci.org/aglipanci/Paps-api.svg?branch=master)](https://travis-ci.org/aglipanci/Paps-api) -->
 
-A PHP client for consuming the [Paps API](https://developers.paps.sn/).
+A PHP client for consuming the [Paps API](https://developers.papslogistics.com/).
 
-_This client is targeting the API version v1_.
+_This client is targeting the API version v2_.
 
 ## Install
 
@@ -53,7 +53,7 @@ You can use this method if you also want to track your orders on the Monespace w
 $delivery = new Paps\Resources\Delivery($client);
 
 // Email registered on your Monespace account
-$email = "saliou@example.com"
+$email = "kiamet@example.com"
 
 // Prepare your pickups params
 $pickups = [
@@ -83,6 +83,7 @@ $response = $delivery->createTaskForAPIUser($email, $pickups, $deliveries);
 // Read your response, hopefully successful.
 echo json_encode($response);
 ```
+
 
 ### Create a standard [Delivery Request with a pickup](https://developers.paps.sn/create)
 

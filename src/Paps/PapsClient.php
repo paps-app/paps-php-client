@@ -9,12 +9,12 @@ class PapsClient
     /**
      * API Base URL
      */
-    const API_BASE_PATH = 'https://api.paps.sn/api/';
+    const API_BASE_PATH = 'https://api.papslogistics.com/';
 
     /**
      * API Version
      */
-    const API_VERSION = 'v1';
+    const API_VERSION = 'v2';
 
     /**
      * HTTP Client

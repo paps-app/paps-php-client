@@ -52,7 +52,7 @@ class Delivery extends AbstractResource
      */
     public function create(array $delivery_params = [])
     {
-        return $this->setEndpoint($this->getEndpoint() . 'createPickupAndDelivery')
+        return $this->setEndpoint($this->getEndpoint() . 'task')
             ->setParams($delivery_params)
             ->setMethod('POST')
             ->send();
@@ -81,7 +81,7 @@ class Delivery extends AbstractResource
             return (object) $array;
         }, $delivery_params);
 
-        return $this->setEndpoint($this->getEndpoint() . 'createTasksWithClientApp')
+        return $this->setEndpoint($this->getEndpoint() . 'task')
             ->setParams([
                 'email' => $email,
                 'pickups' => $pickup_params,
@@ -128,7 +128,7 @@ class Delivery extends AbstractResource
      */
     public function submitQuotesRequest(array $quotes_params = [])
     {
-        return $this->setEndpoint($this->getEndpoint() . 'getQuotes')
+        return $this->setEndpoint($this->getEndpoint() . 'marketplace')
             ->setParams($quotes_params)
             ->setMethod('GET')
             ->send();
