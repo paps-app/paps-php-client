@@ -16,6 +16,7 @@
   ],
   "require": {
       "php": ">=5.4.0",
+    "guzzlehttp/guzzle": "~5.3.4",
       "guzzlehttp/ringphp": "^1.1",
       "react/promise": "^2.2"
   },
@@ -27,9 +28,5 @@
       "psr-4": {
         "Paps\\": "src/Paps/"
       }
-  },
-  "require": {
-    "php": ">=5.4.0",
-    "guzzlehttp/guzzle": "~5.3.4"
   }
 }

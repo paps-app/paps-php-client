@@ -56,8 +56,8 @@ abstract class AbstractResource
      * @return mixed
      * @throws PapsException
      */
-    protected function send()
-    {
+
+    protected function send($authentificate=false){
         $content = null;
 
         try {
@@ -66,10 +66,7 @@ abstract class AbstractResource
 
             $clientConfig = $this->client->getConfig();
 
-            $defaultQueryParams = ['api_key' => $clientConfig['api_key']];
-            if ($clientConfig['mode'] == "test") {
-                $defaultQueryParams['test'] = true;
-            }
+            $defaultQueryParams = [];
 
             $params = [];
 
@@ -78,21 +75,21 @@ abstract class AbstractResource
                 if ($this->getMethod() == 'POST') {
                     $params = [
                         'form_params' => $this->getParams(),
-                        'query' => $defaultQueryParams
+                        'body' => $defaultQueryParams
                         // 'on_stats' => function (TransferStats $stats) use (&$url) {
                         //   echo $stats->getEffectiveUri();
                         // }
                     ];
                 }
 
-                if ($this->getMethod() == 'GET') {
+                if ($this->getMethod() == 'POST') {
                     $params = [
-                        'query' => array_merge($this->getParams(), $defaultQueryParams)
+                        'body' => array_merge($this->getParams(), $defaultQueryParams)
                     ]; 
                 } 
             }
 
-            $httpClient = $this->client->getHttpClient();
+            $httpClient = $this->client->getHttpClient($authentificate);
             $response = $httpClient->send($httpClient->createRequest($this->getMethod(), $this->getEndpoint(), $params));
             $content = $response->getBody();
         } catch (\Exception $e) {

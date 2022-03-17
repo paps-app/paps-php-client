@@ -14,12 +14,12 @@ class DeliveryZones extends AbstractResource
     /**
      * List all delivery zones
      *
-     * https://developers.paps.sn/zones#get-all-quotes
+     * https://developers.paps.sn/zones#get-all-rates
      *
      * @return mixed
      */
     public function listZones()
     {
-        return $this->setMethod('GET')->send();
+        return $this->setMethod('POST')->send();
     }
 }

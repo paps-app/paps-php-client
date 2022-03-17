@@ -17,29 +17,30 @@ class Delivery extends AbstractResource
     /**
      * Pickup is being happening status
      */
-    const STATUS_PICKUP = 'pickup';
+    const STATUS_PICKUP = 'UNASSIGNED';
+
 
     /**
      * Pickup has been completed status
      */
-    const STATUS_PICKUP_COMPLETE = 'pickup_complete';
+    const STATUS_PICKUP_COMPLETE = 'DONE';
 
     /**
      * Dropoff is being happening status
      */
-    const STATUS_DROPOFF = 'dropoff';
+    const STATUS_DROPOFF = 'UNASSIGNED';
 
     /**
      * Delivery has been completed status
      */
-    const STATUS_DELIVERED = 'delivered';
+    const STATUS_DELIVERED = 'DONE';
 
     /**
      * Base endpoint for Deliveries
      *
      * @var string
      */
-    // protected $endpoint = 'createPickupAndDelivery';
+    // protected $endpoint = 'tasks';
     // protected $endpoint = 'customers/[customer_id]/deliveries';
 
     /**
@@ -50,16 +51,16 @@ class Delivery extends AbstractResource
      * @param array $delivery_params
      * @return mixed
      */
-    public function create(array $delivery_params = [])
+    public function tasks(array $delivery_params = [])
     {
         return $this->setEndpoint($this->getEndpoint() . 'tasks')
             ->setParams($delivery_params)
             ->setMethod('POST')
-            ->send();
+            ->send(true);
     }
 
     /**
-     * Create a new delivery for an app user (monespace.paps.sn)
+     * Create a new delivery for an app user (www.mypaps.paps.sn)
      *
      * https://developers.paps.sn/create#créer-une-tâche-de-pickup-et-delivery-liés
      *
@@ -68,8 +69,9 @@ class Delivery extends AbstractResource
      * @param array $delivery_params
      * @return mixed
      */
-    public function createTaskForAPIUser(
+    public function tasksForAPIUser(
         $email = string,
+        $password= string,
         array $pickup_params = [],
         array $delivery_params = []
     ) {
@@ -81,9 +83,10 @@ class Delivery extends AbstractResource
             return (object) $array;
         }, $delivery_params);
 
-        return $this->setEndpoint($this->getEndpoint() . 'createTasksWithClientApp')
+        return $this->setEndpoint($this->getEndpoint() . 'tasks')
             ->setParams([
                 'email' => $email,
+                'password' => $password,
                 'pickups' => $pickup_params,
                 'deliveries' => $delivery_params
             ])
@@ -106,7 +109,7 @@ class Delivery extends AbstractResource
         $end_date = string,
         $select_by = string
     ) {
-        return $this->setEndpoint($this->getEndpoint() . 'viewAllTasksDetails')
+        return $this->setEndpoint($this->getEndpoint() . 'fetchActivities')
             ->setParams([
                 'date' => $date,
                 'startDate' => $start_date,
@@ -128,9 +131,9 @@ class Delivery extends AbstractResource
      */
     public function submitQuotesRequest(array $quotes_params = [])
     {
-        return $this->setEndpoint($this->getEndpoint() . 'getQuotes')
+        return $this->setEndpoint($this->getEndpoint() . '/marketplace')
             ->setParams($quotes_params)
-            ->setMethod('GET')
+            ->setMethod('POST')
             ->send();
     }
 
@@ -144,7 +147,7 @@ class Delivery extends AbstractResource
      */
     public function get($task_id)
     {
-        return $this->setEndpoint($this->getEndpoint() . 'viewTask')
+        return $this->setEndpoint($this->getEndpoint() . 'fetchTasksByClient')
             ->setParams([
                 'id' => $task_id
             ])
