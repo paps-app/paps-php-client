@@ -2,9 +2,9 @@
 
 <!-- [![Build Status](https://travis-ci.org/aglipanci/Paps-api.svg?branch=master)](https://travis-ci.org/aglipanci/Paps-api) -->
 
-A PHP client for consuming the [Paps API](https://developers.paps.sn/).
+A PHP client for consuming the [Paps API](https://test-paps.readme.io/reference/healthcheck).
 
-_This client is targeting the API version v2_.
+_This client is targeting the API version v1_.
 
 ## Install
 
@@ -22,7 +22,7 @@ All the method listed below are the same documented on the RESTful API, so this 
 
 ### Create the client
 
-First you'll need to initialize the client by providing your API. To get an API, visit [the documentation](https://developers.paps.sn/) and click on "Get a Key" button.
+First you'll need to initialize the client by providing your API. To get an API, visit [the documentation](#) and click on "Get a Key" button.
 
 ```php
 $client = new Paps\PapsClient([
@@ -43,7 +43,7 @@ $client = new Paps\PapsClient([
 
 ### Create a delivery request linked to your main account on [Monespace](https://monespace.paps.sn/)
 
-- Method : [`$delivery->createTaskForAPIUser($email = string, array $delivery_params = [], array $pickup_params = [])`](https://developers.paps.sn/create#cr%C3%A9ation-de-t%C3%A2ches-avec-suivi-sur-monespace)
+- Method : [`$delivery->tasksForAPIUser($email = string, array $delivery_params = [], array $pickup_params = [])`](https://developers.paps.sn/create#cr%C3%A9ation-de-t%C3%A2ches-avec-suivi-sur-monespace)
 
 You can use this method if you also want to track your orders on the Monespace web client application. Note that you must specify the email address of the account that has access to the application. Again, make sure to read the documentation for params expected by this method
 
@@ -53,7 +53,7 @@ You can use this method if you also want to track your orders on the Monespace w
 $delivery = new Paps\Resources\Delivery($client);
 
 // Email registered on your Monespace account
-$email = "kiamet@example.com"
+$email = "saliou@example.com"
 
 // Prepare your pickups params
 $pickups = [
@@ -78,7 +78,7 @@ $deliveries = [
 ];
 
 // Pass your request
-$response = $delivery->createTaskForAPIUser($email, $pickups, $deliveries);
+$response = $delivery->tasksForAPIUser($email, $pickups, $deliveries);
 
 // Read your response, hopefully successful.
 echo json_encode($response);
