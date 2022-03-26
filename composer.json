@@ -1,6 +1,7 @@
 {
     "name": "paps-app/paps-php-client",
     "description": "Paps API Client for PHP",
+    "version": "3.0.1",
     "keywords": [
         "swagger",
         "php",
