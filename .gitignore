@@ -1,5 +1,0 @@
-composer.lock
-vendor/
-.idea/
-tests
-node_modules
